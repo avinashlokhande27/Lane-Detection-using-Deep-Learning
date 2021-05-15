@@ -20,7 +20,7 @@ To implement deep learning algorithm to detect lanes on the street, I have used 
 **Data pre-processing**
 
 From total 501 images of size(1280x720), used 451 for training and 50 for testing. 
-
+[Data_link](https://s3.amazonaws.com/assignment-lane-marking-data/data.zip).
 The narrow width lanes annotations might get distorted with image resizing. So, I have used cropping and tiling approach to pre-process the data.
 
 When I gone through the data, labels were present only in bottom 75% of the image other 25% mostly content sky which was not that much useful in training and was increasing background data
@@ -44,7 +44,8 @@ From a large pool of network architectures, we usually prefer the most recent de
 Instead of going for more complex network, I have used a simple straight forward sequential network VGG-FCN to solve this problem. which is easy to debug and always gives results
 
 For training this model I have used Adam optimiser with initial learning rate 10e-4 and categorical crossentropy as loss function. 
-Trained on NVIDIA V100 GPU with batch size 8 and for 500 epochs
+Trained on NVIDIA V100 GPU with batch size 8 and for 500 epochs.
+[Model_link](https://drive.google.com/file/d/1-3ra9jmyHpVaoJOd1tiJP0cnwMU_xCUc/view?usp=sharing)
 
 **Inferencing**
 
