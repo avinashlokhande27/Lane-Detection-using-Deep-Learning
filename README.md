@@ -1,4 +1,4 @@
-**Lane-Detection-using-Deep-Learning**
+## Lane-Detection-using-Deep-Learning
 
 
 **Approach**
@@ -29,7 +29,7 @@ Cropping sky region and splitting the remaining image in 2 tiles gives me 902 im
 
 **Augmentation**
 
-Following are the transformations I chose for augmentation with ‘Albumentations’ python library
+Following are the transformations I chose for augmentation with _‘Albumentations’_ python library
 1.	Random sized crop
 2.	Random Hue saturation
 3.	Random brightness contrast
@@ -43,32 +43,12 @@ These augmentations can take care of different lighting conditions and camera sp
 From a large pool of network architectures, we usually prefer the most recent deep learning model, which might be unnecessary for the task at hand. Theoretically the choice of model depends on the properties of the dataset and the task. 
 Instead of going for more complex network, I have used a simple straight forward sequential network VGG-FCN to solve this problem. which is easy to debug and always gives results
 
-For training this model I have used RMSprop optimiser with initial learning rate 10e-6 and categorical crossentropy as loss function. 
-Trained on NVIDIA V100 GPU with batch size 8 and for 1000 epochs
-
-
-       
-Traing accuracy, loss and dice coefficent graphs
-
-
-  
-Validation dice coefficient and learning rate graph
-
+For training this model I have used Adam optimiser with initial learning rate 10e-4 and categorical crossentropy as loss function. 
+Trained on NVIDIA V100 GPU with batch size 8 and for 500 epochs
 
 **Inferencing**
 
 For inferencing, cropped and tiled input test image as per pre-processing step. Carried out model prediction on both tiles and put them back together as original dimensions
-
-Sample Outputs
-
-    Test Image               Ground Truth              Predicted
-           
-
-            
-        
-
-        
-
 
 **Model evaluation**
 
