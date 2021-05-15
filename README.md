@@ -1,7 +1,7 @@
-Lane-Detection-using-Deep-Learning
+**Lane-Detection-using-Deep-Learning**
 
 
-Approach
+**Approach**
 
 To implement deep learning algorithm to detect lanes on the street, I have used image segmentation approach. Now, to build a segmentation model need to follow following steps:
 1.	Data pre-processing
@@ -10,14 +10,14 @@ To implement deep learning algorithm to detect lanes on the street, I have used 
 4.	Inferencing
 5.	Model evaluation
 
-Challenges
+**Challenges**
 
 1.	When I got the assignment, I downloaded the data set, resized images to 384X640, created train-test split, used random augmentation and kept it for training got good training accuracy but when inferenced on test set got blank output.
 2.	There are lot of segmentation model architectures and modified versions present, which one to choose?
 3.	Noisy dataset with class imbalance
 
 
-Data pre-processing
+**Data pre-processing**
 
 From total 501 images of size(1280x720), used 451 for training and 50 for testing. 
 
@@ -27,7 +27,7 @@ When I gone through the data, labels were present only in bottom 75% of the imag
 
 Cropping sky region and splitting the remaining image in 2 tiles gives me 902 images of size 544x640 for training.
 
-Augmentation
+**Augmentation**
 
 Following are the transformations I chose for augmentation with ‘Albumentations’ python library
 1.	Random sized crop
@@ -38,7 +38,7 @@ Following are the transformations I chose for augmentation with ‘Albumentation
 
 These augmentations can take care of different lighting conditions and camera specifications. These 5 transformations will increase the data set significantly
 
-Model selection and training
+**Model selection and training**
 
 From a large pool of network architectures, we usually prefer the most recent deep learning model, which might be unnecessary for the task at hand. Theoretically the choice of model depends on the properties of the dataset and the task. 
 Instead of going for more complex network, I have used a simple straight forward sequential network VGG-FCN to solve this problem. which is easy to debug and always gives results
@@ -55,7 +55,7 @@ Traing accuracy, loss and dice coefficent graphs
 Validation dice coefficient and learning rate graph
 
 
-Inferencing
+**Inferencing**
 
 For inferencing, cropped and tiled input test image as per pre-processing step. Carried out model prediction on both tiles and put them back together as original dimensions
 
@@ -70,7 +70,7 @@ Sample Outputs
         
 
 
-Model evaluation
+**Model evaluation**
 
 Model was evaluated on 50 test images based on IOU and Dice
 
